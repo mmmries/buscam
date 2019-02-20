@@ -15,3 +15,9 @@
 
 # If the VM crashes, it generates a dump, let's ignore it too.
 erl_crash.dump
+
+# Don't commig sensitive config
+bin/.env
+
+# Compile artifacts of nerves
+_nerves-tmp/

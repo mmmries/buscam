@@ -44,15 +44,11 @@ config :nerves_firmware_ssh,
 # Configure nerves_init_gadget.
 # See https://hexdocs.pm/nerves_init_gadget/readme.html for more information.
 
-# Setting the node_name will enable Erlang Distribution.
-# Only enable this for prod if you understand the risks.
-node_name = if Mix.env() != :prod, do: "buscam"
-
 config :nerves_init_gadget,
-  ifname: "usb0",
+  ifname: "wlan0",
   address_method: :dhcpd,
-  mdns_domain: "nerves.local",
-  node_name: node_name,
+  mdns_domain: "buscam.local",
+  node_name: "buscam",
   node_host: :mdns_domain
 
 # Import target specific config. This must remain at the bottom
@@ -60,3 +56,29 @@ config :nerves_init_gadget,
 # Uncomment to use target specific configurations
 
 # import_config "#{Mix.target()}.exs"
+
+config :nerves_network, regulatory_domain: "US"
+
+config :nerves_network, :default,
+   wlan0: [
+    networks: [
+      [
+        priority: 3,
+        ssid: System.get_env("HOME_SSID"),
+        psk: System.get_env("HOME_PSK"),
+        key_mgmt: :"WPA-PSK"
+      ],
+      [
+        priority: 2,
+        ssid: System.get_env("WORK_SSID"),
+        psk: System.get_env("WORK_PSK"),
+        key_mgmt: :"WPA-PSK"
+      ],
+      [
+        priority: 1,
+        ssid: System.get_env("PHONE_SSID"),
+        psk: System.get_env("PHONE_PSK"),
+        key_mgmt: :"WPA-PSK"
+      ]
+    ]
+  ]
