@@ -37,6 +37,7 @@ defmodule Buscam.MixProject do
       # Dependencies for all targets
       {:camweb, path: "../web"},
       {:nerves, "~> 1.4", runtime: false},
+      {:picam, "~> 0.3.0"},
       {:shoehorn, "~> 0.4"},
       {:ring_logger, "~> 0.6"},
       {:toolshed, "~> 0.2"},
@@ -44,7 +45,6 @@ defmodule Buscam.MixProject do
       # Dependencies for all targets except :host
       {:nerves_runtime, "~> 0.6", targets: @all_targets},
       {:nerves_init_gadget, "~> 0.4", targets: @all_targets},
-      {:picam, "~> 0.3.0", targets: @all_targets},
 
       # Dependencies for specific targets
       {:nerves_system_rpi, "~> 1.6", runtime: false, targets: :rpi},

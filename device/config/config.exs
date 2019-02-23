@@ -1,7 +1,8 @@
 use Mix.Config
 
-if Mix.target() != :host do
-
+if Mix.target() == :host do
+  config :picam, camera: Picam.FakeCamera
+else
   config :nerves, :firmware, rootfs_overlay: "rootfs_overlay"
 
   # Use shoehorn to start the main application. See the shoehorn

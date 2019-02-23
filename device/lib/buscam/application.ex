@@ -17,12 +17,15 @@ defmodule Buscam.Application do
   # List all child processes to be supervised
   def children(:host) do
     [
+      Picam.FakeCamera,
+      Buscam
     ]
   end
 
   def children(_target) do
     [
       Picam.Camera,
+      Buscam
     ]
   end
 end

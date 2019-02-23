@@ -5,13 +5,18 @@ defmodule Buscam do
 
   use GenServer
 
+  def start_link(opts \\ []) do
+    GenServer.start_link(__MODULE__, nil, opts)
+  end
+
   def init(nil) do
-    Picam.set_size(1350, 900)
+    Picam.set_size(1280, 720)
     {:ok, nil, pause_time()}
   end
 
   def handle_info(:timeout, nil) do
     base64 = Picam.next_frame() |> Base.encode64()
+    CamwebWeb.Endpoint.broadcast("cam:pictures", "picture", %{"base64" => base64})
     {:noreply, nil, pause_time()}
   end
 
