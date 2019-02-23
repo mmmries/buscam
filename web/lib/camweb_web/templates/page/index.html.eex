@@ -1,4 +1,5 @@
-<section class="phx-hero">
+<section class="my-hero">
   <h1>Cam</h1>
+  <h2 id="latest_time"></h2>
   <img id="latest_picture" />
 </section>

@@ -10,6 +10,7 @@ mix deps.get
 mix phx.digest
 cd ../device
 source bin/.env # this loads in sensitive config values like wifi passkeys
+mix deps.get
 mix firmware
 bin/upload.sh buscam.riesd.com
 ```

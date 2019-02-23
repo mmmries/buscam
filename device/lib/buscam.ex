@@ -16,7 +16,11 @@ defmodule Buscam do
 
   def handle_info(:timeout, nil) do
     base64 = Picam.next_frame() |> Base.encode64()
-    CamwebWeb.Endpoint.broadcast("cam:pictures", "picture", %{"base64" => base64})
+    timestamp = DateTime.utc_now() |> DateTime.to_unix(:millisecond)
+    CamwebWeb.Endpoint.broadcast("cam:pictures", "picture", %{
+      "base64" => base64,
+      "timestamp" => timestamp
+    })
     {:noreply, nil, pause_time()}
   end
 

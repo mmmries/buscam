@@ -2,10 +2,11 @@
 
 @import "./phoenix.css";
 
-.mycontainer {
-  margin: 0 auto;
-  /* max-width: 80.0rem; */
-  padding: 0 2.0rem;
-  position: relative;
-  width: 100%;
+.my-hero {
+  text-align: center;
+  border-bottom: 1px solid #e3e3e3;
+  background: #eee;
+  border-radius: 6px;
+  font-weight: 200;
+  font-size: 120%;
 }

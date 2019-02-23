@@ -21,6 +21,8 @@ channel.join()
 channel.on("picture", msg => {
   var base64 = msg.base64
   document.getElementById("latest_picture").setAttribute("src", "data:image/jpeg;base64, " + base64)
+  var date = new Date(msg.timestamp)
+  document.getElementById("latest_time").innerText = date.toLocaleTimeString()
 })
 
 export default socket

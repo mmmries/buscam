@@ -42,9 +42,13 @@ defmodule Buscam.MixProject do
       {:ring_logger, "~> 0.6"},
       {:toolshed, "~> 0.2"},
 
+      # Local Development
+      {:phoenix_live_reload, "~> 1.2", only: :dev},
+
       # Dependencies for all targets except :host
       {:nerves_runtime, "~> 0.6", targets: @all_targets},
       {:nerves_init_gadget, "~> 0.4", targets: @all_targets},
+      {:nerves_time, "~> 0.2.1", targets: @all_targets},
 
       # Dependencies for specific targets
       {:nerves_system_rpi, "~> 1.6", runtime: false, targets: :rpi},
