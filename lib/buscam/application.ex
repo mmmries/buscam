@@ -17,15 +17,12 @@ defmodule Buscam.Application do
   # List all child processes to be supervised
   def children(:host) do
     [
-      # Starts a worker by calling: Buscam.Worker.start_link(arg)
-      # {Buscam.Worker, arg},
     ]
   end
 
   def children(_target) do
     [
-      # Starts a worker by calling: Buscam.Worker.start_link(arg)
-      # {Buscam.Worker, arg},
+      Picam.Camera,
     ]
   end
 end

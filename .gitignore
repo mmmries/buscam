@@ -21,3 +21,5 @@ bin/.env
 
 # Compile artifacts of nerves
 _nerves-tmp/
+
+bin/upload.sh
