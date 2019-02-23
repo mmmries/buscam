@@ -2,7 +2,9 @@ defmodule CamwebWeb.Endpoint do
   use Phoenix.Endpoint, otp_app: :camweb
 
   socket "/socket", CamwebWeb.UserSocket,
-    websocket: true,
+    websocket: [
+      check_origin: false
+    ],
     longpoll: false
 
   # Serve at "/" the static files from "priv/static" directory.
