@@ -1,7 +1,5 @@
 use Mix.Config
 
-config :phoenix, :json_library, Jason
-
 if Mix.target() != :host do
 
   config :nerves, :firmware, rootfs_overlay: "rootfs_overlay"
@@ -63,3 +61,5 @@ if Mix.target() != :host do
       ]
     ]
 end
+
+import_config("../../camweb/config/config.exs")
