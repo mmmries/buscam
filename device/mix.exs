@@ -35,7 +35,7 @@ defmodule Buscam.MixProject do
   defp deps do
     [
       # Dependencies for all targets
-      {:camweb, path: "../camweb"},
+      {:camweb, path: "../web"},
       {:nerves, "~> 1.4", runtime: false},
       {:shoehorn, "~> 0.4"},
       {:ring_logger, "~> 0.6"},

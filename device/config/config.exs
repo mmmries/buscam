@@ -62,4 +62,4 @@ if Mix.target() != :host do
     ]
 end
 
-import_config("../../camweb/config/config.exs")
+import_config("../../web/config/config.exs")
